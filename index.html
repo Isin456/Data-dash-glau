@@ -1,0 +1,395 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Dash | TechNavya | GLA University</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --border: #1e293b;
+      --accent: #22c55e;
+      --accent-soft: #bbf7d0;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #111827;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-left span.highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 16px;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* LAYOUT */
+    .wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 30px 18px 40px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 24px 22px;
+      border-radius: 22px;
+      background: radial-gradient(circle at top left, #22c55e22 0, #020617 55%);
+      border: 1px solid #1e293b;
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6);
+      margin-bottom: 26px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 6px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 460px;
+      margin-bottom: 14px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 12px;
+    }
+
+    .pill {
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background: rgba(15, 23, 42, 0.6);
+      color: var(--muted);
+    }
+
+    .pill-strong {
+      background: #064e3b;
+      color: var(--accent-soft);
+      border-color: #065f46;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #022c22;
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 18px 45px rgba(34, 197, 94, 0.45);
+    }
+
+    .btn-main:hover {
+      background: #16a34a;
+    }
+
+    .hero-right {
+      border-radius: 18px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      padding: 14px 14px 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-right h2 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .hero-right ul {
+      list-style: none;
+      display: grid;
+      gap: 4px;
+    }
+
+    .hero-right li span {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-top: 26px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #020617;
+      border-radius: 16px;
+      padding: 14px 14px 12px;
+      border: 1px solid #1f293b;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .card ul {
+      list-style: none;
+      display: grid;
+      gap: 4px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 18px;
+    }
+
+    .list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+    }
+
+    .list span {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .center-cta {
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px solid #111827;
+    }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      nav { padding: 12px 16px; }
+      .wrapper { padding: 24px 14px 32px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-left">
+      <span class="highlight">TechNavya</span>
+      <span>|</span>
+      <span>Data Dash</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#why">Why sponsor</a>
+      <a href="#basic-info">Event info</a>
+      <a href="#sponsor">Sponsor</a>
+    </div>
+  </nav>
+
+  <main class="wrapper">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div>
+        <div class="eyebrow">Office of Students' Welfare • GLA University</div>
+        <h1><span>Data</span> Dash</h1>
+        <p class="sub">
+          A focused dashboard‑building event under TechNavya where students turn datasets into clear visual stories using leading analytics tools. [attached_file:1]
+        </p>
+        <div class="meta-row">
+          <div class="pill pill-strong">31 January • 11:00 AM – 3:00 PM</div>
+          <div class="pill">Venue: AB 12, Room 1005</div>
+          <div class="pill">Open to all courses</div>
+        </div>
+        <a
+          class="btn-main"
+          href="https://forms.gle/your-google-form-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sponsor Us
+        </a>
+      </div>
+
+      <div class="hero-right" id="basic-info">
+        <h2>Event snapshot</h2>
+        <ul>
+          <li><span>Theme:</span> Data visualization & business intelligence. [attached_file:1]</li>
+          <li><span>Format:</span> Screening round + final round with live dataset. [attached_file:1]</li>
+          <li><span>Participants:</span> Teams of up to 3 or individual entries. [attached_file:1]</li>
+          <li><span>Tools:</span> Microsoft Excel, Power BI, Tableau, Canva. [attached_file:1]</li>
+          <li><span>Device policy:</span> Participants bring their own laptops. [attached_file:1]</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WHY SPONSOR -->
+    <section id="why">
+      <h2 class="section-title">Why sponsor Data Dash?</h2>
+      <p class="section-sub">
+        Data Dash offers a concise, high‑quality platform for brands that value analytics and insight‑driven thinking, without overwhelming sponsors with unnecessary complexity. [attached_file:1]
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Analytics‑ready talent</h3>
+          <ul>
+            <li>Participants are comfortable using Excel, Power BI, and Tableau on real datasets. [attached_file:1]</li>
+            <li>Shortlisted teams already prove basic dashboarding skills through a screening round. [attached_file:1]</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Clear brand presence</h3>
+          <ul>
+            <li>Association with TechNavya and the Office of Students' Welfare.</li>
+            <li>Visibility across campus through event communication and on‑site branding.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Simple, focused format</h3>
+          <ul>
+            <li>One event slot of 4 hours--easy to support and attend. [attached_file:1]</li>
+            <li>Judging built around creativity, storytelling, technical skill, and user experience. [attached_file:1]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS + JUDGING (ESSENTIAL ONLY) -->
+    <section class="two-col" style="margin-top: 24px;">
+      <div class="card">
+        <h3>How it runs</h3>
+        <ul class="list">
+          <li>A common dataset is shared for the screening round; teams submit a basic dashboard. [attached_file:1]</li>
+          <li>Shortlisted entries advance to the final, where a new dataset is given on the spot. [attached_file:1]</li>
+          <li>Each team presents its dashboard to the judges in 5–7 minutes. [attached_file:1]</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Judging lens</h3>
+        <ul class="list">
+          <li><span>Creativity & originality</span> in visuals and approach. [attached_file:1]</li>
+          <li><span>Data storytelling</span> and clarity of insights. [attached_file:1]</li>
+          <li><span>Technical soundness</span> and appropriate use of tools. [attached_file:1]</li>
+          <li><span>Overall user experience</span> of the dashboard. [attached_file:1]</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SPONSOR CTA -->
+    <section id="sponsor" class="center-cta">
+      <p class="section-sub">
+        Share your interest through the form below and the TechNavya organising team will connect with you for a brief, tailored sponsorship discussion.
+      </p>
+      <a
+        class="btn-main"
+        href="https://forms.gle/your-google-form-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Sponsor Us
+      </a>
+    </section>
+
+    <p class="footer-note">
+      Data Dash is organised under TechNavya by the Office of Students' Welfare, GLA University, following the official event guidelines for rounds, tools, and judging criteria. [attached_file:1]
+    </p>
+  </main>
+</body>
+</html>
